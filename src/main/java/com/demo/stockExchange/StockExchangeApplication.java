@@ -1,3 +1,4 @@
+
 package com.demo.stockExchange;
 
 import org.springframework.boot.SpringApplication;

@@ -4,5 +4,5 @@ import com.demo.stockExchange.model.User;
 
 public interface UserService {
 
-	public int registerUser(User user);
+	public User registerUser(User user);
 }

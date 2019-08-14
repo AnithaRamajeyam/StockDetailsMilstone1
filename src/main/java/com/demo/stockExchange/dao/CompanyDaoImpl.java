@@ -1,17 +1,6 @@
 package com.demo.stockExchange.dao;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
-import org.springframework.stereotype.Repository;
-
-import com.demo.stockExchange.model.Company;
-
-@Repository
+/*@Repository
 public class CompanyDaoImpl implements CompanyDao {
 	
 	@Override
@@ -27,9 +16,11 @@ public class CompanyDaoImpl implements CompanyDao {
 			ps.setDouble(2, company.getTurnOver());
 			ps.setString(3, company.getCeo());
 			ps.setString(4,company.getBoardOfDirectors());
-			ps.setInt(5, company.getSectorId());
+			int sectorid=1;
+			ps.setInt(5,sectorid);
 			ps.setString(6, company.getBriefWriteup());
-			ps.setInt(7,company.getStockCode());
+			int stockcode=10;
+			ps.setInt(7,stockcode);
 			result=ps.executeUpdate();
 			
 		} catch (Exception e) {
@@ -81,30 +72,31 @@ public class CompanyDaoImpl implements CompanyDao {
 	}
 }
 
-//	@Override
-//	public boolean updateCompany(Company company) {
-//	Connection con=null;
-//    PreparedStatement ps=null;
-//    boolean result=false;
-//    try {
-//    			Class.forName("com.mysql.jdbc.Driver");
-//    			con=DriverManager.getConnection("jdbc:mysql://localhost:3306/e_auction","root","root");
-//    			ps=con.prepareStatement("update company set company_name=?,turnover=?,ceo=?,board_of_directors=?,sector_id=?,breifwriteup=?,stock_Code=? where company_id=?");
-//    			ps.setString(1,company.getCompanyName());
-//    			ps.setDouble(2, company.getTurnOver());
-//    			ps.setString(3, company.getCeo());
-//    			ps.setString(4,company.getBoardOfDirectors());
-//    			ps.setInt(5, company.getSectorId());
-//    			ps.setString(6, company.getBriefWriteup());
-//    			ps.setInt(7,company.getStockCode());
-//    			result=ps.execute();
-//		} catch (Exception e) {
-//			// TODO: handle exception
-//		}
-//		
-//		return false;
-//	}
-//
+	@Override
+	public boolean updateCompany(Company company) {
+	Connection con=null;
+    PreparedStatement ps=null;
+    boolean result=false;
+    try {
+    			Class.forName("com.mysql.jdbc.Driver");
+    			con=DriverManager.getConnection("jdbc:mysql://localhost:3306/e_auction","root","root");
+    			ps=con.prepareStatement("update company set company_name=?,turnover=?,ceo=?,board_of_directors=?,sector_id=?,breifwriteup=?,stock_Code=? where company_id=?");
+    			ps.setString(1,company.getCompanyName());
+    			ps.setDouble(2, company.getTurnOver());
+    			ps.setString(3, company.getCeo());
+    			ps.setString(4,company.getBoardOfDirectors());
+    			ps.setInt(5, company.getSectorId());
+    			ps.setString(6, company.getBriefWriteup());
+    			ps.setInt(7,company.getStockCode());
+    			result=ps.execute();
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		
+		return false;
+	}
 
 
 
+
+*/

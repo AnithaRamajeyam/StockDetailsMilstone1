@@ -1,4 +1,6 @@
-
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+ <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>  
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,7 +8,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
@@ -19,7 +21,7 @@
     <header>
         <div id="image">
             <p>
-                <img src="images/logo.jpg" alt="no image" width="70px" height="70px;">
+                <img src="${pageContext.request.contextPath}/images/logo.jpg" alt="no image" width="70px" height="70px;">
             </p>
         </div>
         <div id="text">
@@ -65,31 +67,33 @@
         </div>
     </nav>
     <article>
-        <form>
+        <form:form action="addstockDetails" modelAttribute="stockexchange">
             <p id="body-text">Add Stock Details</p>
 
             <table>
                 <tr>
                     <td><label>Stock Name</label></td>
-                    <td><input type="text" name="stockname" id="stockname" required /></td>
+                   	<td> <form:input path="stockExchangeName" type="text" class="form-control"/></td>
+                    <td> <form:errors path="stockExchangeName" class="text-danger"/></td>
                 </tr>
                 <tr>
                     <td><label>Brief</label></td>
-                    <td><input type="text" name="brief" id="brief" required /></td>
+                  	<td> <form:input path="brief" type="text" class="form-control"/></td>
+                    <td><form:errors path="brief" class="text-danger"/></td>
                 </tr>
                 <tr>
                     <td><label>Contact Address</label></td>
-                    <td><input type="text" name="contactaddress" id="contactaddress" required /></td>
+                  	<td><form:input path="contactAddress" type="text" class="form-control"/></td>
+                    <td><form:errors path="contactAddress" class="text-danger"/></td>
                 </tr>
                 <tr>
                     <td><label>Remarks</label></td>
-                    <td><input type="text" name="remarks" id="remarks" required /></td>
+                  	<td><form:input path="remarks" type="text" class="form-control"/></td>
+                    <td><form:errors path="remarks" class="text-danger"/></td>
                 </tr>
             </table>
             <input type="submit" name="submit" value="save" class="btn" />
-        </form>
-
-        </form>
+        </form:form>
     </article>
     <footer>
         <p id="ftext">Copyright&copy; 2019</p>

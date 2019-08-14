@@ -1,26 +1,45 @@
 package com.demo.stockExchange.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+
+@Entity
+@Table(name="user")
 public class User {
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name="id")
 	private int userId;
+	@NotEmpty(message="*please enter username")
+	@Pattern(regexp="[a-zA-Z]{3,10}", message="*Please enter 3-10 characters only")
+	@Column(name="username")
 	private String userName;
+	@NotEmpty(message="*please enter a valid password")
+	@Column(name="password")
 	private String password;
-	private String userType;
+	@NotEmpty(message="*please Confirm a password")
+	@Column(name="cpassword")
+	private String cpassword;
+	private String usertype;
+	@NotEmpty(message="*please enter Email")
+	@Email(message = "Email should be valid")
+	@Column(name="email")
 	private String email;
+	@NotNull(message="*please enter MobileNo")
+	@Column(name="mobile_number")
 	private long mobileno;
+	@Column(name="confirmed")
 	private boolean confirmed;
-	public User(String userName, String password, String userType, String email, long mobileno, boolean confirmed) {
-		super();
-		this.userName = userName;
-		this.password = password;
-		this.userType = userType;
-		this.email = email;
-		this.mobileno = mobileno;
-		this.confirmed = confirmed;
-	}
-	public User() {
-		// TODO Auto-generated constructor stub
-	}
 	public int getUserId() {
 		return userId;
 	}
@@ -39,11 +58,17 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	public String getCpassword() {
+		return cpassword;
+	}
+	public void setCpassword(String cpassword) {
+		this.cpassword = cpassword;
+	}
 	public String getUserType() {
-		return userType;
+		return usertype;
 	}
 	public void setUserType(String userType) {
-		this.userType = userType;
+		this.usertype = userType;
 	}
 	public String getEmail() {
 		return email;
@@ -63,5 +88,6 @@ public class User {
 	public void setConfirmed(boolean confirmed) {
 		this.confirmed = confirmed;
 	}
+	
 	
 }

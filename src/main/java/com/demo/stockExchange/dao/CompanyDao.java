@@ -1,14 +1,9 @@
 package com.demo.stockExchange.dao;
 
-import java.sql.SQLException;
-import java.util.List;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.demo.stockExchange.model.Company;
 
-
-public interface CompanyDao {
+public interface CompanyDao extends JpaRepository<Company, Integer> {
 	
-		public int insertCompany(Company company) throws SQLException;
-		public boolean updateCompany(Company company);
-		public List<Company> getCompanyList() throws Exception;
 }

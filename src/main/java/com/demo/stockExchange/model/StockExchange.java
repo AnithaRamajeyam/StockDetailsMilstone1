@@ -1,11 +1,36 @@
 package com.demo.stockExchange.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
+
+@Entity
+@Table(name="stockexchange")
 public class StockExchange {
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name="stockexchange_id")
 	private int stockExchangeId;
+	
+	@NotEmpty(message="please enter stockexchange Name")
+	@Column(name="stockexchange_name")
 	private String stockExchangeName;
+	
+	@NotEmpty(message="please enter Brief description")
+	@Column(name="brief")
 	private String brief;
+	
+	@NotEmpty(message="please enter Address")
+	@Column(name="contact_address")
 	private String contactAddress;
+	
+	@NotEmpty(message="please enter Remarks")
+	@Column(name="remarks")
 	private String remarks;
 	public int getStockExchangeId() {
 		return stockExchangeId;
@@ -37,14 +62,5 @@ public class StockExchange {
 	public void setRemarks(String remarks) {
 		this.remarks = remarks;
 	}
-	public StockExchange(int stockExchangeId, String stockExchangeName, String brief, String contactAddress,
-			String remarks) {
-		super();
-		this.stockExchangeId = stockExchangeId;
-		this.stockExchangeName = stockExchangeName;
-		this.brief = brief;
-		this.contactAddress = contactAddress;
-		this.remarks = remarks;
-	}
-	
+
 }

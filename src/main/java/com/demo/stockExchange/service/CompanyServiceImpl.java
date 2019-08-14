@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.demo.stockExchange.dao.CompanyDao;
-import com.demo.stockExchange.dao.CompanyDaoImpl;
 import com.demo.stockExchange.model.Company;
 
 @Service
@@ -17,10 +16,8 @@ public class CompanyServiceImpl implements CompanyService {
 	CompanyDao dao;
 
 	@Override
-	public int insertCompany(Company company) throws SQLException {
-		dao=new CompanyDaoImpl();
-		int result=dao.insertCompany(company);
-		return result;
+	public Company insertCompany(Company company) throws SQLException {
+		return dao.save(company);
 	}
 
 	@Override
@@ -31,9 +28,7 @@ public class CompanyServiceImpl implements CompanyService {
 
 	@Override
 	public List<Company> getCompanyList() throws Exception {
-		dao=new CompanyDaoImpl();
-		List<Company> list=dao.getCompanyList();
-		return list;
+		return dao.findAll();
 	}
 
 }

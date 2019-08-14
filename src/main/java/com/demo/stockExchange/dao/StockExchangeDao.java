@@ -1,13 +1,8 @@
 package com.demo.stockExchange.dao;
-
-import java.util.List;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.demo.stockExchange.model.StockExchange;
 
-public interface StockExchangeDao {
+public interface StockExchangeDao  extends JpaRepository<StockExchange, Integer>{
 	
-	public int insertStockExchangeDetails(StockExchange stock);
-
-	public List<StockExchange> getAllStockExchangedetails();
-
 }

@@ -6,7 +6,7 @@ import java.sql.PreparedStatement;
 
 import com.demo.stockExchange.model.User;
 
-
+/*
 public class UserDaoImpl implements UserDao {
 
 	@Override
@@ -33,3 +33,4 @@ public class UserDaoImpl implements UserDao {
 	}
 
 }
+*/

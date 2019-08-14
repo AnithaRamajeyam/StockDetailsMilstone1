@@ -18,6 +18,11 @@ footer {
     left: 0;
     bottom: 0;
 }
+.error {
+	color: #ff0000;
+	font-style: italic;
+	font-weight: bold;
+}
 #text {
     font-size: 50px;
     color: #FFFFFF;
@@ -43,6 +48,7 @@ footer {
     overflow: hidden;
     background-color: #333;
   }
+
 #list {
     float: left;
   }
@@ -61,12 +67,12 @@ table td {
 }
 table {
   width: 45%;
-  margin: 25px auto;
+  margin: 20px auto;
   margin-left: 650px;
   float: none;
 }
 #table {
-  width: 45%;
+  padding:20px;
   margin: 15px auto;
   margin-left: 720px;
   float: none;
